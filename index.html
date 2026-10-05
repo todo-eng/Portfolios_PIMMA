@@ -1,0 +1,263 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Portfolios de ejemplo PIMMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Source+Sans+3:wght@400;600&family=Figtree:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=Sora:wght@400;600;700&family=JetBrains+Mono:wght@400;600&family=Manrope:wght@400;600;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ui-bg:#f3f5f8; --ui-surface:#ffffff; --ui-ink:#18212e; --ui-muted:#5b6778; --ui-line:#d9dfe7; --ui-accent:#1f4e79; --ui-accent-ink:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme:dark; --ui-bg:#11161d; --ui-surface:#19202a; --ui-ink:#e7ecf3; --ui-muted:#9aa6b6; --ui-line:#2c3542; --ui-accent:#8fb8e3; --ui-accent-ink:#0e1520; }
+}
+:root[data-theme="dark"]{ color-scheme:dark; --ui-bg:#11161d; --ui-surface:#19202a; --ui-ink:#e7ecf3; --ui-muted:#9aa6b6; --ui-line:#2c3542; --ui-accent:#8fb8e3; --ui-accent-ink:#0e1520; }
+
+body{ background:var(--ui-bg); color:var(--ui-ink); font-family:"IBM Plex Sans",system-ui,sans-serif; }
+.wrap{ max-width:1080px; margin:0 auto; padding-inline:16px; padding-block:20px 48px; }
+.intro{ display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+.intro h1{ font-size:1.35rem; margin:0; text-wrap:balance; }
+.intro p{ margin:0; color:var(--ui-muted); max-width:70ch; line-height:1.5; }
+.tabs{ display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; margin-bottom:16px; scrollbar-width:thin; }
+.tab{ flex:0 0 auto; border:1px solid var(--ui-line); background:var(--ui-surface); color:var(--ui-ink); border-radius:8px; padding:8px 12px; font:inherit; font-size:.85rem; cursor:pointer; text-align:left; display:flex; flex-direction:column; gap:2px; }
+.tab small{ color:var(--ui-muted); font-size:.74rem; }
+.tab[aria-selected="true"]{ background:var(--ui-accent); color:var(--ui-accent-ink); border-color:var(--ui-accent); }
+.tab[aria-selected="true"] small{ color:inherit; opacity:.85; }
+.tab:focus-visible{ outline:2px solid var(--ui-accent); outline-offset:2px; }
+.meta{ display:flex; flex-wrap:wrap; gap:8px 16px; align-items:baseline; margin-bottom:10px; font-size:.85rem; color:var(--ui-muted); }
+.meta b{ color:var(--ui-ink); }
+.frame{ border:1px solid var(--ui-line); border-radius:12px; overflow:hidden; box-shadow:0 6px 24px rgba(10,20,40,.08); }
+.urlbar{ background:var(--ui-surface); border-bottom:1px solid var(--ui-line); padding:8px 12px; display:flex; gap:10px; align-items:center; font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--ui-muted); }
+.urlbar i{ display:inline-flex; gap:5px; }
+.urlbar i span{ width:9px; height:9px; border-radius:50%; background:var(--ui-line); display:block; }
+.urlbar .u{ background:var(--ui-bg); border-radius:6px; padding:3px 10px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; flex:1; }
+
+/* ---------- portfolio base ---------- */
+.pf{ --bg:#fff; --ink:#111; --muted:#555; --line:#ddd; --accent:#333; --soft:#f3f3f3; --chip:#eee; --display:system-ui; --body:system-ui; --mono:ui-monospace,monospace;
+  background:var(--bg); color:var(--ink); font-family:var(--body); font-size:15px; line-height:1.55; }
+.pf a{ color:inherit; }
+.pf h2{ font-family:var(--display); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); margin:0 0 12px; font-weight:700; }
+.pf .sec{ padding:28px clamp(18px,4vw,44px); border-top:1px solid var(--line); }
+.pf .hero{ padding:40px clamp(18px,4vw,44px) 32px; display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
+.pf .mono-av{ width:76px; height:76px; border-radius:18px; background:var(--accent); color:var(--bg); display:grid; place-items:center; font-family:var(--display); font-weight:700; font-size:1.7rem; flex:0 0 auto; }
+.pf .who{ display:flex; flex-direction:column; gap:4px; min-width:0; flex:1 1 280px; }
+.pf .name{ font-family:var(--display); font-size:clamp(1.7rem,4vw,2.4rem); line-height:1.1; margin:0; text-wrap:balance; }
+.pf .role{ font-weight:600; color:var(--accent); margin:0; }
+.pf .tag{ color:var(--muted); margin:4px 0 0; max-width:60ch; }
+.pf .badge{ display:inline-flex; align-self:flex-start; gap:6px; align-items:center; font-size:.78rem; font-weight:600; padding:4px 10px; border-radius:999px; background:var(--soft); color:var(--ink); border:1px solid var(--line); margin-top:8px; }
+.pf .about{ max-width:65ch; margin:0; }
+.pf .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none; }
+.pf .chips li{ background:var(--chip); border-radius:6px; padding:4px 10px; font-family:var(--mono); font-size:.8rem; }
+.pf .projects{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; }
+.pf .card{ background:var(--soft); border:1px solid var(--line); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; }
+.pf .card h3{ font-family:var(--display); font-size:1.08rem; margin:0; line-height:1.3; }
+.pf .kv{ display:grid; grid-template-columns:auto 1fr; gap:4px 10px; margin:0; font-size:.9rem; }
+.pf .kv dt{ font-weight:600; color:var(--muted); }
+.pf .kv dd{ margin:0; }
+.pf .card .chips li{ background:var(--bg); font-size:.74rem; }
+.pf .link{ font-family:var(--mono); font-size:.78rem; color:var(--accent); overflow-wrap:anywhere; margin-top:auto; }
+.pf.split .side .hero{ position:sticky; top:24px; }
+.pf .list{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:8px; }
+.pf .list li{ display:flex; gap:12px; flex-wrap:wrap; justify-content:space-between; border-bottom:1px dashed var(--line); padding-bottom:8px; }
+.pf .list li span:last-child{ color:var(--muted); font-variant-numeric:tabular-nums; }
+.pf .contact{ display:flex; flex-wrap:wrap; gap:10px; }
+.pf .btn{ display:inline-flex; align-items:center; padding:10px 16px; border-radius:8px; background:var(--accent); color:var(--bg); font-weight:600; font-size:.9rem; text-decoration:none; }
+.pf .btn.ghost{ background:transparent; color:var(--ink); border:1px solid var(--line); }
+.pf .extra{ background:var(--soft); border-radius:12px; padding:18px; border:1px solid var(--line); }
+.pf .extra ol{ margin:8px 0 0; padding-left:20px; display:grid; gap:4px; }
+.pf pre{ font-family:var(--mono); font-size:.78rem; line-height:1.45; margin:8px 0 0; overflow-x:auto; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:12px; color:var(--ink); }
+.pf .langs{ display:flex; gap:6px; }
+.pf .langs button{ font:inherit; font-size:.78rem; font-weight:600; padding:4px 10px; border-radius:6px; border:1px solid var(--line); background:transparent; color:var(--ink); cursor:pointer; }
+.pf .langs button[aria-pressed="true"]{ background:var(--accent); color:var(--bg); border-color:var(--accent); }
+.pf .foot{ padding:18px clamp(18px,4vw,44px); font-size:.78rem; color:var(--muted); border-top:1px solid var(--line); }
+
+/* split layout */
+.pf.split{ display:grid; grid-template-columns:minmax(230px,300px) 1fr; }
+.pf.split .side{ background:var(--accent); color:var(--bg); padding:36px 26px; display:flex; flex-direction:column; gap:14px; }
+.pf.split .side .mono-av{ background:var(--bg); color:var(--accent); }
+.pf.split .side .role,.pf.split .side .tag{ color:inherit; opacity:.92; }
+.pf.split .side .badge{ background:transparent; color:inherit; border-color:currentColor; }
+.pf.split .side .hero{ padding:0; flex-direction:column; align-items:flex-start; }
+.pf.split .main .sec:first-child{ border-top:0; }
+@media (max-width:720px){ .pf.split{ grid-template-columns:1fr; } }
+
+/* ---------- themes ---------- */
+.t-pilar{ --bg:#fbfcfc; --ink:#14232b; --muted:#566871; --line:#d5e0e3; --accent:#0f6b73; --soft:#eef4f5; --chip:#dfeced; --display:"IBM Plex Sans",sans-serif; --body:"IBM Plex Sans",sans-serif; --mono:"IBM Plex Mono",monospace; }
+.t-mariela{ --bg:#ffffff; --ink:#15213a; --muted:#56607a; --line:#dde2ec; --accent:#1d3a6e; --soft:#f2f5fa; --chip:#e6ebf4; --display:"Source Serif 4",Georgia,serif; --body:"Source Sans 3",sans-serif; --mono:"IBM Plex Mono",monospace; }
+.t-mariela h2{ letter-spacing:.04em; text-transform:none; font-size:1.2rem; }
+.t-carmen{ --bg:#ffffff; --ink:#1b2a22; --muted:#56655c; --line:#dce6df; --accent:#2e6b4a; --soft:#f1f6f2; --chip:#e2eee6; --display:"Figtree",sans-serif; --body:"Figtree",sans-serif; --mono:"IBM Plex Mono",monospace; }
+.t-carmen .mono-av{ border-radius:50%; }
+.t-luz{ --bg:#fbfafb; --ink:#23151b; --muted:#6a5860; --line:#e7dde1; --accent:#7a1f3d; --soft:#f5eff2; --chip:#efe3e8; --display:"Fraunces",Georgia,serif; --body:"Work Sans",sans-serif; --mono:"IBM Plex Mono",monospace; }
+.t-luz h2{ text-transform:none; letter-spacing:0; font-size:1.3rem; font-weight:600; }
+.t-nora{ --bg:#ffffff; --ink:#1d1a2b; --muted:#615d74; --line:#e6e3f0; --accent:#6a3fd6; --soft:#f6f3ff; --chip:#ece6ff; --display:"Sora",sans-serif; --body:"Sora",sans-serif; --mono:"DM Mono",monospace; }
+.t-nora .hero{ background:linear-gradient(120deg,#f6f3ff 0%,#fff1ec 100%); }
+.t-nora .mono-av{ background:#ff6b4a; border-radius:24px 6px 24px 6px; }
+.t-nora .card{ border-radius:18px; }
+.t-elena{ --bg:#111821; --ink:#e3e9f1; --muted:#98a4b3; --line:#263241; --accent:#f2b134; --soft:#17212d; --chip:#1f2b39; --display:"Manrope",sans-serif; --body:"Manrope",sans-serif; --mono:"JetBrains Mono",monospace; color-scheme:dark; }
+.t-elena .mono-av{ color:#111821; border-radius:6px; font-family:var(--mono); }
+.t-elena .btn{ color:#111821; }
+.t-elena h2::before{ content:"> "; font-family:var(--mono); }
+.t-sara{ --bg:#ffffff; --ink:#0f1422; --muted:#5a6275; --line:#e3e6ee; --accent:#2b59ff; --soft:#f5f7fc; --chip:#edf1fb; --display:"DM Sans",sans-serif; --body:"DM Sans",sans-serif; --mono:"DM Mono",monospace; }
+.t-sara .name{ letter-spacing:-.02em; }
+.t-sara .mono-av{ border-radius:50%; }
+
+@media (prefers-reduced-motion:no-preference){ .frame{ transition:opacity .2s; } }
+</style>
+
+<div class="wrap">
+    <nav class="tabs" role="tablist" id="tabs" aria-label="Participantes"></nav>
+  <div class="meta" id="meta"></div>
+  <div class="frame">
+    <div class="urlbar"><i><span></span><span></span><span></span></i><div class="u" id="url"></div></div>
+    <div id="stage"></div>
+  </div>
+</div>
+
+<script>
+const P = [
+ { id:"1", key:"pilar", theme:"t-pilar", layout:"top", tabRole:"Soporte → datos",
+   user:"pilar-fernandez", name:"Pilar Fernández", ini:"PF",
+   role:"Técnica de sistemas en transición a datos",
+   tag:"Muchos años resolviendo incidencias me han enseñado a encontrar el problema antes de buscar la herramienta. Ahora aplico eso al análisis de datos.",
+   about:"Vengo del soporte técnico y la administración de sistemas en empresas de distintos sectores. Estoy completando formación en Python, análisis de datos e inteligencia artificial, y busco un puesto donde sume mi experiencia en sistemas con lo que estoy aprendiendo en datos.",
+   stack:["Windows Server","Active Directory","PowerShell","Python","pandas","SQL","Power BI"],
+   projects:[
+    {t:"Inventario automático de equipos", p:"El inventario de 80 ordenadores se llevaba a mano en una hoja y siempre estaba desactualizado.", d:"Escribí un script que recoge cada semana los datos de los equipos de la red y los vuelca en una hoja compartida.", s:["PowerShell","Excel"], l:"github.com/pilar-fernandez/inventario-equipos"},
+    {t:"El paro en Asturias por concejos", p:"Proyecto de curso: entender cómo ha cambiado el paro registrado en los concejos asturianos.", d:"Descargué los datos abiertos, los limpié con Python y preparé gráficos comparativos con mis conclusiones.", s:["Python","pandas","Jupyter"], l:"github.com/pilar-fernandez/paro-asturias"}],
+   edu:[["Especialización en análisis de datos e IA (cursos)","2026"],["FP II Informática","—"]],
+   note:"Lo que aporta el ejemplo: sus proyectos se pueden abrir y comprobar, así que su nivel queda a la vista sin necesidad de discutirlo." },
+
+ { id:"2", key:"mariela", theme:"t-mariela", layout:"split", tabRole:"Sistemas y proyectos",
+   user:"mariela-rodriguez", name:"Mariela Rodríguez", ini:"MR", bilingual:true,
+   role:{es:"Desarrollo de sistemas y gestión de proyectos", en:"Systems development and project management"},
+   tag:{es:"Seis años construyendo sistemas y coordinando a los equipos que los hacen posibles.", en:"Six years building systems and coordinating the teams behind them."},
+   about:{es:"Licenciada en Computación, con seis años de experiencia en desarrollo de sistemas y control de proyectos. He participado en todo el ciclo: análisis, desarrollo, puesta en marcha y seguimiento. Recientemente he completado un certificado profesional en desarrollo web.", en:"Computer Science graduate with six years of experience in systems development and project control. I have worked across the full cycle: analysis, development, launch and follow-up. I recently completed a professional certificate in web development."},
+   stack:["Java","SQL Server","PHP","HTML/CSS","JavaScript","Jira","Scrum"],
+   projects:[
+    {t:{es:"Sistema de matrículas universitarias",en:"University enrolment system"}, p:{es:"Las matrículas se hacían en papel y colapsaban cada inicio de curso.",en:"Enrolment was paper-based and collapsed at the start of every term."}, d:{es:"Coordiné un equipo de cuatro personas y desarrollé el módulo de pagos. Planifiqué las entregas y el seguimiento de plazos.",en:"I led a team of four and built the payments module. I planned the releases and tracked deadlines."}, s:["Java","SQL Server","Jira"], l:"—"},
+    {t:{es:"Web para una asociación vecinal",en:"Website for a neighbourhood association"}, p:{es:"Proyecto final del certificado: la asociación solo se comunicaba por carteles.",en:"Certificate final project: the association only communicated through posters."}, d:{es:"Diseñé y desarrollé la web con agenda de actividades y formulario de contacto.",en:"I designed and built the site with an events calendar and a contact form."}, s:["HTML","CSS","JavaScript"], l:"github.com/mariela-rodriguez/web-asociacion"}],
+   edu:[[{es:"Certificado profesional de desarrollo web",en:"Professional certificate in web development"},"2026"],[{es:"Licenciatura en Computación (Venezuela)",en:"BSc in Computer Science (Venezuela)"},"—"]],
+   note:"Lo que aporta el ejemplo: el botón ES / EN. Tener el portfolio en inglés le sirve para practicar lo que trabaja con la orientadora." },
+
+ { id:"8", key:"carmen", theme:"t-carmen", layout:"top", tabRole:"Desarrollo web junior",
+   user:"carmen-alvarez", name:"Carmen Álvarez", ini:"CA",
+   role:"Desarrolladora web junior",
+   tag:"Formación técnica reciente y muchos años de oficio tratando con personas y resolviendo problemas.",
+   about:"Antes de dedicarme a la informática trabajé muchos años en puestos de atención y gestión, donde aprendí a escuchar, organizar y cumplir plazos. En 2026 terminé mi formación en desarrollo de aplicaciones web, seguridad informática, programación y bases de datos.",
+   stack:["PHP","MySQL","HTML","CSS","JavaScript","Git","Seguridad web básica"],
+   projects:[
+    {t:"Gestión de citas para una peluquería", p:"La peluquería apuntaba las citas en una libreta y a veces se duplicaban.", d:"Desarrollé una aplicación web con base de datos para dar, cambiar y anular citas, con vista diaria para el personal.", s:["PHP","MySQL","CSS"], l:"github.com/carmen-alvarez/citas-peluqueria"},
+    {t:"Revisión de seguridad de una web", p:"Práctica del curso: comprobar los puntos débiles básicos de una web pequeña.", d:"Preparé una lista de comprobación (contraseñas, HTTPS, copias de seguridad, formularios) y un informe con las mejoras propuestas.", s:["OWASP","HTTPS","Informe técnico"], l:"github.com/carmen-alvarez/checklist-seguridad"}],
+   edu:[["Certificado de desarrollo de aplicaciones web","2026"],["Formación en seguridad informática","2026"],["Programación y bases de datos","2026"]],
+   note:"Lo que aporta el ejemplo: el «Sobre mí» convierte su trayectoria anterior en un punto fuerte en lugar de algo que justificar." },
+
+ { id:"10", key:"luz", theme:"t-luz", layout:"split", tabRole:"Ingeniería y docencia",
+   user:"luzmarina-gomez", name:"Luz Marina Gómez", ini:"LG",
+   role:"Ingeniera de sistemas · consultoría y formación técnica",
+   tag:"Diseño soluciones y sé explicarlas: a un equipo técnico y a quien las va a usar.",
+   badge:"Título homologado en España",
+   about:"Ingeniera de sistemas con experiencia en implantación de soluciones, consultoría y formación técnica. He trabajado tanto construyendo sistemas como acompañando a las personas que los usan, y eso me permite tender puentes entre lo técnico y el negocio.",
+   stack:["Análisis de requisitos","SQL","ERP","Modelado de datos","Gestión del cambio","Formación técnica"],
+   projects:[
+    {t:"Implantación de un ERP en una distribuidora", p:"La empresa gestionaba compras, almacén y facturación en programas separados.", d:"Analicé los procesos, definí la migración de datos y formé a los usuarios en el nuevo sistema.", s:["ERP","SQL","Formación"], l:"—"},
+    {t:"Tutorial: bases de datos en 10 pasos", p:"Material propio para explicar bases de datos a personas sin base técnica.", d:"Lo publico aquí como muestra de cómo explico conceptos técnicos. Está resumido abajo.", s:["SQL","Docencia"], l:"luzmarina-gomez.github.io/tutorial-bd"}],
+   extra:{title:"Bases de datos en 10 pasos", list:["Qué es una tabla","Filas y columnas","Claves primarias","Relaciones entre tablas","Consultas con SELECT","Filtrar con WHERE","Ordenar y agrupar","Unir tablas con JOIN","Insertar y actualizar datos","Buenas prácticas y copias de seguridad"]},
+   edu:[["Ingeniería de Sistemas (homologada en España)","1995"],["Acreditación docente para la formación","2026"]],
+   note:"Lo que aporta el ejemplo: la homologación aparece arriba, a la vista, y la docencia se presenta como un punto fuerte con una muestra real." },
+
+ { id:"18", key:"nora", theme:"t-nora", layout:"top", tabRole:"Front y apps móviles",
+   user:"nora-iglesias", name:"Nora Iglesias", ini:"NI",
+   role:"Desarrolladora front-end y de apps móviles",
+   tag:"He vivido en Alemania, Corea y Reino Unido. Diseño pensando en quien usa la app, venga de donde venga.",
+   about:"Licenciada en Turismo, me pasé al desarrollo por curiosidad y me quedé por gusto. Estoy terminando el ciclo de Desarrollo de Aplicaciones Multiplataforma. Me interesan el front, la calidad del software y la experiencia de usuario.",
+   stack:["HTML","CSS","JavaScript","Kotlin","Android Studio","Figma","Git"],
+   projects:[
+    {t:"App de hábitos diarios", p:"Proyecto del ciclo: una app sencilla para marcar hábitos y ver la racha de días.", d:"Diseñé las pantallas en Figma y desarrollé la app para Android.", s:["Kotlin","Android","Figma"], l:"github.com/nora-iglesias/app-habitos"},
+    {t:"Rutas por Asturias en tres idiomas", p:"Una guía web de rutas para visitantes extranjeros.", d:"Web adaptada a móvil en español, inglés y alemán, con filtro por dificultad y duración.", s:["HTML","CSS","JavaScript"], l:"nora-iglesias.github.io/rutas-asturias"}],
+   edu:[["CFGS Desarrollo de Aplicaciones Multiplataforma","2026"],["Licenciatura en Turismo","—"],["Idiomas: inglés, alemán","—"]],
+   note:"Lo que aporta el ejemplo: el segundo proyecto junta en uno su parte técnica, los idiomas y su formación en turismo." },
+
+ { id:"20", key:"elena", theme:"t-elena", layout:"top", tabRole:"Seguridad y redes",
+   user:"elena-petrova", name:"Elena Petrova", ini:"EP",
+   role:"Analista de seguridad y redes · CCNA",
+   tag:"Experiencia en servicios IT para clientes internacionales y certificación CCNA reciente.",
+   about:"He trabajado como analista de seguridad en una multinacional de servicios IT, dando soporte a un cliente europeo. En 2026 obtuve la certificación CCNA. Busco puestos de seguridad, redes o soporte técnico avanzado.",
+   stack:["Cisco IOS","VLAN","ACL","Packet Tracer","SIEM","Gestión de incidentes","Windows / Linux"],
+   projects:[
+    {t:"Laboratorio CCNA: red de una oficina", p:"Preparación de la certificación: segmentar la red de una oficina pequeña.", d:"Monté en Packet Tracer tres VLAN (administración, personal e invitados) con reglas de acceso para aislar la red de invitados.", s:["Cisco","VLAN","ACL"], l:"github.com/elena-petrova/lab-ccna-oficina"},
+    {t:"Gestión de incidentes de seguridad", p:"Caso de trabajo, contado sin datos del cliente.", d:"Analizaba las alertas, clasificaba los incidentes por gravedad y coordinaba la respuesta con el equipo técnico del cliente.", s:["SIEM","ITIL","Informes"], l:"—"}],
+   extra:{title:"Esquema del laboratorio", pre:"Router ─── Switch principal\n              ├─ VLAN 10  Administración   192.168.10.0/24\n              ├─ VLAN 20  Personal         192.168.20.0/24\n              └─ VLAN 30  Invitados        192.168.30.0/24\n\nACL: la VLAN 30 solo sale a internet;\n     no puede llegar a las VLAN 10 ni 20."},
+   edu:[["Cisco CCNA","2026"],["Licenciatura en Marketing y Publicidad (Bulgaria)","1995"]],
+   note:"Lo que aporta el ejemplo: ella decide qué contar de su etapa anterior y cómo, sin datos confidenciales, y el laboratorio demuestra el CCNA." },
+
+ { id:"33", key:"sara", theme:"t-sara", layout:"top", tabRole:"Front-end",
+   user:"sara-menendez", name:"Sara Menéndez", ini:"SM",
+   role:"Desarrolladora front-end",
+   tag:"Tres años construyendo interfaces claras y rápidas. Ahora, además, estudiando Ingeniería Informática.",
+   about:"Técnica superior en Desarrollo de Aplicaciones Web y en Sistemas Microinformáticos y Redes. Llevo unos tres años trabajando como desarrolladora front y he retomado el grado en Ingeniería Informática.",
+   stack:["React","TypeScript","JavaScript","HTML","CSS / Sass","Git","Accesibilidad web"],
+   projects:[
+    {t:"Panel de gestión para logística", p:"Proyecto de empresa, contado sin código propiedad del cliente.", d:"Desarrollé las pantallas de seguimiento de envíos y los filtros de búsqueda, y reduje el tiempo de carga de la vista principal.", s:["React","TypeScript","API REST"], l:"—"},
+    {t:"Gestor de tareas colaborativo", p:"Proyecto del grado: organizar trabajos en grupo sin perder el hilo.", d:"Desarrollé el front completo, con tablero de tareas, asignación por persona y modo oscuro.", s:["React","Node.js","GitHub Actions"], l:"github.com/sara-menendez/gestor-tareas"}],
+   edu:[["Grado en Ingeniería Informática (en curso)","—"],["CFGS Desarrollo de Aplicaciones Web","2023"],["CFGS Sistemas Microinformáticos y Redes","—"]],
+   note:"Lo que aporta el ejemplo: diferencia entre el trabajo de empresa (descrito) y el personal (con código visible)." }
+];
+
+let current = P[0], lang = "es";
+const tx = v => (v && typeof v === "object" && !Array.isArray(v)) ? (v[lang] ?? v.es) : v;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const L = { es:{about:"Sobre mí",stack:"Tecnologías",proj:"Proyectos",prob:"Problema",did:"Qué hice",edu:"Formación y certificaciones",contact:"Contacto",nolink:"Proyecto de empresa: sin enlace público"}, en:{about:"About me",stack:"Tech stack",proj:"Projects",prob:"Problem",did:"What I did",edu:"Education and certifications",contact:"Contact",nolink:"Company project: no public link"} };
+
+function render(){
+  const p = current, t = L[p.bilingual ? lang : "es"];
+  if(!p.bilingual) lang = "es";
+  const hero = `
+    <div class="hero">
+      <div class="mono-av" aria-hidden="true">${p.ini}</div>
+      <div class="who">
+        <h1 class="name">${esc(p.name)}</h1>
+        <p class="role">${esc(tx(p.role))}</p>
+        <p class="tag">${esc(tx(p.tag))}</p>
+        ${p.badge ? `<span class="badge">✓ ${esc(p.badge)}</span>` : ""}
+        ${p.bilingual ? `<div class="langs" role="group" aria-label="Idioma"><button type="button" data-lang="es" aria-pressed="${lang==="es"}">ES</button><button type="button" data-lang="en" aria-pressed="${lang==="en"}">EN</button></div>` : ""}
+      </div>
+    </div>`;
+  const cards = p.projects.map(pr => `
+    <article class="card">
+      <h3>${esc(tx(pr.t))}</h3>
+      <dl class="kv"><dt>${t.prob}</dt><dd>${esc(tx(pr.p))}</dd><dt>${t.did}</dt><dd>${esc(tx(pr.d))}</dd></dl>
+      <ul class="chips">${pr.s.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
+      <span class="link">${pr.l === "—" ? t.nolink : "↗ " + esc(pr.l)}</span>
+    </article>`).join("");
+  const extra = p.extra ? `<div class="sec"><div class="extra"><strong>${esc(p.extra.title)}</strong>${p.extra.list ? `<ol>${p.extra.list.map(i=>`<li>${esc(i)}</li>`).join("")}</ol>` : ""}${p.extra.pre ? `<pre>${esc(p.extra.pre)}</pre>` : ""}</div></div>` : "";
+  const body = `
+    <div class="sec"><h2>${t.about}</h2><p class="about">${esc(tx(p.about))}</p></div>
+    <div class="sec"><h2>${t.stack}</h2><ul class="chips">${p.stack.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div>
+    <div class="sec"><h2>${t.proj}</h2><div class="projects">${cards}</div></div>
+    ${extra}
+    <div class="sec"><h2>${t.edu}</h2><ul class="list">${p.edu.map(e=>`<li><span>${esc(tx(e[0]))}</span><span>${e[1]}</span></li>`).join("")}</ul></div>
+    <div class="sec"><h2>${t.contact}</h2><div class="contact"><span class="btn">LinkedIn · linkedin.com/in/${p.user}</span><span class="btn ghost">${p.user}@correo-ejemplo.es</span></div></div>
+    <div class="foot">© 2026 ${esc(p.name)} · Web publicada con GitHub Pages</div>`;
+  const html = p.layout === "split"
+    ? `<div class="pf split ${p.theme}"><aside class="side">${hero}</aside><div class="main">${body}</div></div>`
+    : `<div class="pf ${p.theme}">${hero}${body}</div>`;
+  document.getElementById("stage").innerHTML = html;
+  document.getElementById("url").textContent = `https://${p.user}.github.io`;
+  document.getElementById("meta").innerHTML = `<span><b>ID ${p.id}</b> · ${esc(p.tabRole)}</span><span>${esc(p.note)}</span>`;
+  document.querySelectorAll("#stage [data-lang]").forEach(b => b.onclick = () => { lang = b.dataset.lang; render(); });
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.key === p.key));
+}
+
+const tabs = document.getElementById("tabs");
+P.forEach(p => {
+  const b = document.createElement("button");
+  b.className = "tab"; b.type = "button"; b.setAttribute("role","tab"); b.dataset.key = p.key;
+  b.innerHTML = `<span>ID ${p.id}</span><small>${esc(p.tabRole)}</small>`;
+  b.onclick = () => { current = p; lang = "es"; render(); try{ history.replaceState(null,"","#id"+p.id); }catch(e){} };
+  tabs.appendChild(b);
+});
+const h = (location.hash || "").replace("#id","");
+current = P.find(p => p.id === h) || P[0];
+render();
+</script>
+
+</body></html>
